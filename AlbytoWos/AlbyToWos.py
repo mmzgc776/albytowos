@@ -132,43 +132,6 @@ def push_to_node(wos_remote_balance, local_wos_outbound, local_wos_inbound):
 	print("Paying invoice from WoS app in: ", end_time, "secs")
 	return 
 
-''' All the logic of script here:
-Intermediated rebalance to WoS
-
-Push 99% to alby
-	alby
-		auth
-		generate invoice
-	lnd
-		pay invoice
-
-Pay to wos lnurl 
-	generate an invoice amount (discover this value with the samples)
-		split balance into n payments
-			pay the invoice
-			repeat until new balance < 1%
-			save ppm
-			wait a minute (determine a good wait time to avoid spam)
-
-Pay from WoS to Jalisco
-	lnd
-		check local balance
-		determine invoice size
-		generate invoice
-	Wos
-		pay invoice
-	
-Get balances
-	Alby balance is over 99%?
-	WoS Outbound under 35%?
-	Average ppm is lower than local wos fee
-		Repeat
-
-	Alby balance is under 2%?
-	WoS Outbound is over 35%?
-		Wait 1 hour
-  
-'''
 while True:
 
 	alby_remote_balance, local_alby_outbound, local_alby_inbound, wos_remote_balance, local_wos_outbound, local_wos_inbound = get_balances()
