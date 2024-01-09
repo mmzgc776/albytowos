@@ -1,0 +1,12 @@
+{ 
+  "PixelPro": {
+      "platformName": "android",
+      "platformVersion": "14",
+      "deviceName": "Pixel API 34",
+      "NoReset": "True",
+      "automationName": "UIAutomator2",
+      "noReset": true,
+      "fullReset":  false,        
+      "forceAppLaunch" : true
+  }
+}
